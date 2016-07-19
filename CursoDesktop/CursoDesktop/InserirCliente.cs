@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AcessoDados;
 
 
 namespace CursoDesktop
@@ -22,7 +23,9 @@ namespace CursoDesktop
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Em Manutenção!");
+            DBCliente dbcliente = new DBCliente();
+            dbcliente.InserirCliente(txtNome.Text.Trim(), Convert.ToInt32(nuIdade.Value.ToString()), mskTelefone.Text.Trim(), txtEndereco.Text.Trim(), (rbMasculino.Checked ? 'M' : 'F'));
+             MessageBox.Show("Cliente Cadastrado com sucesso!");
         }
 
         private void btLimpar_Click(object sender, EventArgs e)
